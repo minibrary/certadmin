@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('title')
-<title>CertAdmin | Dashboard</title>
+<title>Cert Admin | Dashboard</title>
 @endpush
 
 @section('content')
