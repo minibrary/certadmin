@@ -19,7 +19,6 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset("dist/css/skins/_all-skins.min.css") }}">
-
   @stack('css')
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,6 +29,7 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+  <div class="se-pre-con"></div>
 <div class="wrapper">
 
   @include('includes.header')
