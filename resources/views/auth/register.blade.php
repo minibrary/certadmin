@@ -91,10 +91,9 @@
     <div class="social-auth-links text-center">
       <p>- OR -</p>
       <a href="{{ url('/redirect/facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up with <b>Facebook</b></a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up with <b>Google+</b></a>
+      <a href="{{ url('/redirect/google') }}" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up with <b>Google+</b></a>
       <a href="{{ url('/redirect/twitter') }}" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Sign up with <b>Twitter</b></a>
-      <a href="#" class="btn btn-block btn-social btn-github"><i class="fa fa-github"></i> Sign up with <b>Github</b></a>
-      <a href="#" class="btn btn-block btn-social btn-instagram"><i class="fa fa-instagram"></i> Sign up with <b>Instagram</b></a>
+      <a href="{{ url('/redirect/github') }}" class="btn btn-block btn-social btn-github"><i class="fa fa-github"></i> Sign up with <b>Github</b></a>
     </div>
 
   </div>

@@ -6,7 +6,12 @@
       <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle">
     </div>
     <div class="pull-left info">
-      <p>Welcome, {{ Auth::user()->name }}</p>
+      <p>
+        @if (empty(Auth::user()->name))
+        {{ Auth::user()->email }}
+        @endif
+        {{ Auth::user()->name }}
+      </p>
       <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
     </div>
   </div>

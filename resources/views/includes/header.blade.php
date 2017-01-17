@@ -214,7 +214,12 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="user-image">
-            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+            <span class="hidden-xs">
+              @if (empty(Auth::user()->name))
+              {{ Auth::user()->email }}
+              @endif
+              {{ Auth::user()->name }}
+            </span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
@@ -222,11 +227,15 @@
               <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle">
 
               <p>
+                @if (empty(Auth::user()->name))
+                {{ Auth::user()->email }}
+                @endif
                 {{ Auth::user()->name }}
+                
                 <small>Member since {{ Auth::user()->created_at->format('d M Y') }}</small>
               </p>
             </li>
-            <!-- Menu Body 
+            <!-- Menu Body
             <li class="user-body">
               <div class="row">
                 <div class="col-xs-4 text-center">
