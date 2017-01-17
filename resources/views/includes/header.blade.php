@@ -226,7 +226,7 @@
                 <small>Member since {{ Auth::user()->created_at->format('d M Y') }}</small>
               </p>
             </li>
-            <!-- Menu Body -->
+            <!-- Menu Body 
             <li class="user-body">
               <div class="row">
                 <div class="col-xs-4 text-center">
@@ -239,8 +239,9 @@
                   <a href="#">Friends</a>
                 </div>
               </div>
-              <!-- /.row -->
+              -- /.row --
             </li>
+		/.Menu Body -->
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
