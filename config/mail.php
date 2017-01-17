@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_SENDER_ADDRESS'),
-        'name' => env('Certivel'),
+        'name' => env('MAIL_SENDER_NAME'),
     ],
 
     /*
