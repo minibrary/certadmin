@@ -1,4 +1,5 @@
-<?php namespace App\Traits;
+<?php
+namespace App\Traits;
 
 use Input;
 use ReCaptcha\ReCaptcha;
