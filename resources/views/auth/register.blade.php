@@ -69,7 +69,8 @@
         <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation" required>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
-      <button class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></button>
+
+	<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
