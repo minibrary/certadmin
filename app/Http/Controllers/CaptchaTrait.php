@@ -1,7 +1,12 @@
-<?php namespace App\Traits;
+<?php
+
+namespace App\Http\Controllers;
+
 use Input;
 use ReCaptcha\ReCaptcha;
+
 trait CaptchaTrait {
+
     public function captchaCheck()
     {
         $response = Input::get('g-recaptcha-response');

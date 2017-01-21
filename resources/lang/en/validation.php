@@ -94,9 +94,7 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
-    'g-recaptcha-response.required' => 'Captcha is required',
-    'captcha.min'           => 'Wrong captcha, please try again.',
-
+    
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
