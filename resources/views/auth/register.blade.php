@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="{{ asset("dist/css/AdminLTE.min.css") }}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset("plugins/iCheck/square/blue.css") }}">
+  <!-- Google reCAPTCHA -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,6 +69,7 @@
         <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation" required>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+      <button class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></button>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
