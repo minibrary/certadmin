@@ -75,15 +75,15 @@
       <a href="{{ url('/register') }}" class="btn btn-block btn-flat btn-social btn-success"><i class="fa fa-user-plus"></i> Register a new Membership</a>
     </div>
 
-  <div class="social-auth-links text-center">
-    <p>- OR -</p>
-    <a href="{{ url('/redirect/facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-    <a href="{{ url('/redirect/google') }}" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in with <b>Google+</b></a>
-    <a href="{{ url('/redirect/twitter') }}" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
-    <a href="{{ url('/redirect/github') }}" class="btn btn-block btn-social btn-github"><i class="fa fa-github"></i> Sign in with <b>Github</b></a>
-
-
-  </div>
+  <!-- Socialite, temporarily down
+    <div class="social-auth-links text-center">
+      <p>- OR -</p>
+        <a href="{{ url('/redirect/facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+        <a href="{{ url('/redirect/google') }}" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in with <b>Google+</b></a>
+        <a href="{{ url('/redirect/twitter') }}" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
+        <a href="{{ url('/redirect/github') }}" class="btn btn-block btn-social btn-github"><i class="fa fa-github"></i> Sign in with <b>Github</b></a>
+    </div>
+  -->
 </div>
 
   <!-- /.social-auth-links -->
