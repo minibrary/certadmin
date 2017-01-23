@@ -837,3 +837,8 @@
 <!-- /.content -->
 
 @endsection
+
+@push('js')
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset("dist/js/pages/dashboard2.js") }}"></script>
+@endpush
