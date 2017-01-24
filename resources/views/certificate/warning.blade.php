@@ -6,18 +6,20 @@
 
 @push('css')
 <!-- DataTables -->
-<link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+<link rel="stylesheet" href="{{ asset("plugins/datatables/dataTables.bootstrap.css") }}">
 @endpush
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
-<section class="content-header">
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
   <h1>
     Certificate List
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Dashboard</li>
+    <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Certificate List: Warning</li>
   </ol>
 </section>
 
@@ -33,10 +35,10 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="example1" class="table table-bordered table-striped">
+    <table id="danger" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Domain(FQDN)</th>
+          <th>Domain</th>
           <th>Days Left</th>
           <th>MEMO</th>
           <th>Port No.</th>
@@ -54,17 +56,15 @@
           <td>{{$certificate->port}}</td>
           <td>{{$certificate->updated_at}}</td>
           <td>
-            <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" aria-label="Center Align" title="Detail">
-              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="btn btn-default" aria-label="Center Align" title="Edit">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="btn btn-default" aria-label="Center Align" title="Delete">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </button>
-          </div>
+                <button type="button" class="btn btn-xs" aria-label="Center Align" title="Detail">
+                  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-xs" aria-label="Center Align" title="Edit">
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-danger btn-xs" aria-label="Center Align" title="Delete">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
           </td>
         </tr>
       @endforeach
@@ -76,6 +76,8 @@
 </div>
 </section>
 <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 @endsection
 
 @push('js')
@@ -91,13 +93,15 @@
 @push('script')
 <script>
   $(function () {
-    $('#example1').DataTable({
+    $('#danger').DataTable({
+      "autoWidth": true,
       "paging": true,
       "lengthChange": false,
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false
+      "autoWidth": false,
+      "scrollX": true
     });
   });
 </script>

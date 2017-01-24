@@ -115,6 +115,9 @@ class CertificateController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $certificate = Certificate::findOrFail($id);
+      $certificate->delete();   // 삭제
+      return redirect('/list')
+        ->with('message', 'Domain ' . $certificate->fqdn  . ' has been deleted.');
     }
 }
