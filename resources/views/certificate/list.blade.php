@@ -75,7 +75,7 @@
                 <button type="button" class="btn btn-xs" aria-label="Center Align" title="Detail">
                   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                 </button>
-                <a class="btn btn-xs" aria-label="Center Align" title="Edit" href="{{ route('list.edit', $certificate->id) }}">
+                <a class="btn btn-warning btn-xs" aria-label="Center Align" title="Edit" href="{{ route('list.edit', $certificate->id) }}">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
 
