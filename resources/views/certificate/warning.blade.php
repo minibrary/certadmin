@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('title')
-<title> Cert Admin | Dashboard </title>
+<title> Cert Admin | Certificate List </title>
 @endpush
 
 @push('css')
@@ -19,13 +19,18 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li class="active">Certificate List: Warning</li>
+    <li class="active">Certificate List: All</li>
   </ol>
 </section>
 
 
 <!-- page content -->
 <section class="content">
+  @if(Session::has('message'))
+    <div class="alert alert-success">
+        {{Session::get('message')}}
+    </div>
+    @endif
   <div class="row">
     <div class="col-xs-12">
 <!-- TABLE START -->
@@ -35,7 +40,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="danger" class="table table-bordered table-striped">
+    <table id="list" class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>Domain</th>
@@ -56,15 +61,47 @@
           <td>{{$certificate->port}}</td>
           <td>{{$certificate->updated_at}}</td>
           <td>
+            <div class="box-body">
+              <div class="low" style="float:left">
                 <button type="button" class="btn btn-xs" aria-label="Center Align" title="Detail">
                   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                 </button>
                 <button type="button" class="btn btn-xs" aria-label="Center Align" title="Edit">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
-                <button type="button" class="btn btn-danger btn-xs" aria-label="Center Align" title="Delete">
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deletemodal-{{ $certificate->id }}" aria-label="Center Align" title="Delete">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="deletemodal-{{ $certificate->id }}" tabindex="-1" role="dialog" aria-labelledby="deletemodalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deletemodal{{ $certificate->id }}">Delete: {{$certificate->fqdn}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure to delete?
+                        </div>
+                        <div class="modal-footer">
+                          <form method="POST" action="{{ route('list.destroy', $certificate->id) }}">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal -->
+              </div>
+            </div>
           </td>
         </tr>
       @endforeach
@@ -93,14 +130,13 @@
 @push('script')
 <script>
   $(function () {
-    $('#danger').DataTable({
-      "autoWidth": true,
+    $('#list').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false,
+      "autoWidth": true,
       "scrollX": true
     });
   });

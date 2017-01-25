@@ -40,22 +40,11 @@ class CertificateController extends Controller
       return view('certificate.danger')->with('certificates', $certificates);    // 3
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
       return view('certificate.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       $certificate = new certificate([
@@ -69,55 +58,31 @@ class CertificateController extends Controller
       \Log::info('Certificate 등록 성공',
           ['user-id'=> $user->id, 'certificate-id'=>$certificate->id]
       );
-      return redirect('/list')
-          ->with('message', $certificate->name . ' 이 생성되었습니다.');
+      return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been created.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+      $certificate = Certificate::findOrFail($id);
+      return view('certificate.edit')->with('certificate', $certificate);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+      $certificate = Certificate::findOrFail($id);
+
+      $certificate->update([
+      'fqdn' => $request->get('fqdn'),
+      'port' => $request->get('port'),
+      'memo' => $request->get('memo'),
+      ]);
+      return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been modified.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
       $certificate = Certificate::findOrFail($id);
       $certificate->delete();   // 삭제
-      return redirect('/list')
-        ->with('message', 'Domain ' . $certificate->fqdn  . ' has been deleted.');
+      return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been deleted.');
     }
 }

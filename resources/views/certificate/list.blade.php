@@ -27,9 +27,18 @@
 <!-- page content -->
 <section class="content">
   @if(Session::has('message'))
-    <div class="alert alert-success">
-        {{Session::get('message')}}
-    </div>
+  <div class="box box-solid box-danger box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">Information</h3>
+      <div class="box-tools pull-right">
+        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div><!-- /.box-tools -->
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      {{Session::get('message')}}
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+
     @endif
   <div class="row">
     <div class="col-xs-12">
@@ -40,7 +49,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="danger" class="table table-bordered table-striped">
+    <table id="list" class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>Domain</th>
@@ -66,42 +75,40 @@
                 <button type="button" class="btn btn-xs" aria-label="Center Align" title="Detail">
                   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                 </button>
-                <button type="button" class="btn btn-xs" aria-label="Center Align" title="Edit">
+                <a class="btn btn-xs" aria-label="Center Align" title="Edit" href="{{ route('list.edit', $certificate->id) }}">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </button>
-                  <form method="POST" action="{{ route('list.destroy', $certificate->id) }}">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                      <button type="submit" class="btn btn-danger btn-xs" aria-label="Center Align" title="Delete">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                  </form>
-                </button>
-                
-                <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+                </a>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        MODAL BODY?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deletemodal-{{ $certificate->id }}" aria-label="Center Align" title="Delete">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="deletemodal-{{ $certificate->id }}" tabindex="-1" role="dialog" aria-labelledby="deletemodalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deletemodal{{ $certificate->id }}">Delete: {{$certificate->fqdn}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure to delete?
+                        </div>
+                        <div class="modal-footer">
+                          <form method="POST" action="{{ route('list.destroy', $certificate->id) }}">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal -->
               </div>
             </div>
           </td>
@@ -132,14 +139,14 @@
 @push('script')
 <script>
   $(function () {
-    $('#danger').DataTable({
+    $('#list').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": true,
-      "scrollX": true
+      "scrollX": false
     });
   });
 </script>

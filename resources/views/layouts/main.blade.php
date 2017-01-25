@@ -19,6 +19,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset("dist/css/skins/_all-skins.min.css") }}">
+  <!-- Quicksand Font -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
   @stack('css')
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,7 +30,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini sidebar-collapse fixed">
 <div class="wrapper">
 
   <header class="main-header">
@@ -248,7 +250,7 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">NAVIGATION</li>
         <li>
           <a href="{{ url('/dashboard') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -256,6 +258,9 @@
         </li>
 
         <li class="header">Certificates</li>
+        <li>
+          <a href="{{ url('/list/create') }}"><i class="fa fa-plus text-green"></i><span> Add Certificate<span></a>
+        </li>
         <li>
           <a href="{{ url('/list') }}"><i class="fa fa-circle-o text-aqua"></i><span> List all</span>
             <span class="pull-right-container">
@@ -276,9 +281,6 @@
               <small class="label pull-right bg-red">{{ App\Certificate::where('daysleft', '<', '30')->count() }}</small>
             </span>
           </a>
-        </li>
-        <li>
-          <a href="{{ url('/list/create') }}"><i class="fa fa-plus text-green"></i><span> Add Certificate<span></a>
         </li>
       </ul>
     </section>
