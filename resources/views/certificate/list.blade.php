@@ -50,7 +50,8 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="list" class="display" cellspacing="0" width="100%">
+    <table id="list" class="display nowrap table" cellspacing="0" 
+width="100%">
       <thead>
         <tr>
           <th>Domain</th>
@@ -84,7 +85,10 @@
                 <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deletemodal-{{ $certificate->id }}" aria-label="Center Align" title="Delete">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </button>
-
+              </div>
+            </div>
+          </td>
+        </tr>
                   <!-- Modal -->
                   <div class="modal fade" id="deletemodal-{{ $certificate->id }}" tabindex="-1" role="dialog" aria-labelledby="deletemodalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -110,10 +114,6 @@
                     </div>
                   </div>
                   <!-- End Modal -->
-              </div>
-            </div>
-          </td>
-        </tr>
       @endforeach
       </tbody>
     </table>
