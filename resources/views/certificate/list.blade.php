@@ -6,7 +6,8 @@
 
 @push('css')
 <!-- DataTables -->
-<link rel="stylesheet" href="{{ asset("plugins/datatables/dataTables.bootstrap.css") }}">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
 @endpush
 
 @section('content')
@@ -49,7 +50,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="list" class="display nowrap cellspacing="0" width="100%" table table-bordered table-striped">
+    <table id="list" class="display nowrap" cellspacing="0" width="100%" >
       <thead>
         <tr>
           <th>Domain</th>
@@ -128,8 +129,16 @@
 
 @push('js')
 <!-- DataTables -->
-<script src="{{ asset("plugins/datatables/jquery.dataTables.min.js") }}"></script>
-<script src="{{ asset("plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
 <!-- SlimScroll -->
 <script src="{{ asset("plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -138,20 +147,20 @@
 
 @push('script')
 <script>
-  $(document).ready(function () {
-    $('#list').DataTable({
-      "dom": 'Bfrtip',
-       buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+$(document).ready(function() {
+    $('#list').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            { extend: 'copy', exportOptions: { columns: ':visible' } },
+            { extend: 'csv', exportOptions: { columns: ':visible' } },
+            { extend: 'excel', exportOptions: { columns: ':visible' } },
+            { extend: 'pdf', exportOptions: { columns: ':visible' } },
+            { extend: 'print', exportOptions: { columns: ':visible' } },
+            'colvis'
         ],
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true,
-      "scrollX": false
-    });
-  });
+        order: [1, 'asc' ],
+        autoWidth: true,
+    } );
+} );
 </script>
 @endpush
