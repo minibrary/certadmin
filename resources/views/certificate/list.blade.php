@@ -49,7 +49,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="list" class="table table-bordered table-striped">
+    <table id="list" class="display nowrap cellspacing="0" width="100%" table table-bordered table-striped">
       <thead>
         <tr>
           <th>Domain</th>
@@ -101,7 +101,7 @@
                           <form method="POST" action="{{ route('list.destroy', $certificate->id) }}">
                               {{ csrf_field() }}
                               {{ method_field('DELETE') }}
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-danger">Delete</button>
                           </form>
                         </div>
@@ -138,8 +138,12 @@
 
 @push('script')
 <script>
-  $(function () {
+  $(document).ready(function () {
     $('#list').DataTable({
+      "dom": 'Bfrtip',
+       buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
       "paging": true,
       "lengthChange": false,
       "searching": true,
