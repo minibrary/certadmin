@@ -50,7 +50,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="list" class="display nowrap" cellspacing="0" width="100%" >
+    <table id="list" class="display" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Domain</th>
@@ -139,6 +139,7 @@
 <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
 <!-- SlimScroll -->
 <script src="{{ asset("plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -160,6 +161,7 @@ $(document).ready(function() {
         ],
         order: [1, 'asc' ],
         autoWidth: true,
+        scrollX: true,
     } );
 } );
 </script>
