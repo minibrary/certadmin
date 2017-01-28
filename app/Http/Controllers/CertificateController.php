@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Certificate;
 use App\Http\Requests;
+use App\X509;
+
 
 
 class CertificateController extends Controller
@@ -55,6 +57,13 @@ class CertificateController extends Controller
       $user = \Auth::user();
       $certificate->user()->associate($user->id);
       $certificate->save();
+
+      $x509 = X509::firstOrNew([
+          'fqdn' => $request->get('fqdn'),
+          'port' => $request->get('port'),
+      ]);
+      $x509->save();
+
       \Log::info('Certificate 등록 성공',
           ['user-id'=> $user->id, 'certificate-id'=>$certificate->id]
       );

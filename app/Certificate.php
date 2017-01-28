@@ -12,4 +12,11 @@ class Certificate extends Model
       return $this->belongsTo(User::class);
     }
 
+    public function x509()
+    {
+      return $this->belongsTo(X509::class);
+    }
+
+
+
 }
