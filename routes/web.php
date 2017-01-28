@@ -22,7 +22,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/dashboard', 'DashboardController@index');
 
 Route::group(['middleware' => ['web', 'auth']], function() {
-    Route::resource('/list', 'CertificateController');
     Route::get('/list/warning', 'CertificateController@warning');
     Route::get('/list/danger', 'CertificateController@danger');
+    Route::resource('/list', 'CertificateController');
 });

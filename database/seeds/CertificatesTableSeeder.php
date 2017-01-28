@@ -17,7 +17,7 @@ class CertificatesTableSeeder extends Seeder
         	DB::table('certificates')->insert([
 			'user_id' => '1',
 			'fqdn' => str_random(10).'.com',
-			'memo' => str_random(100),
+			'memo' => str_random(20).' '.str_random(10),
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 			'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	]);
