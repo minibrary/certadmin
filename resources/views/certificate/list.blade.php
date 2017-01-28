@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('title')
-<title> Cert Admin | Certificate List </title>
+<title> Certificate List | Certivel </title>
 @endpush
 
 @push('css')
@@ -50,7 +50,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="list" class="display nowrap table" cellspacing="0" 
+    <table id="list" class="display nowrap table" cellspacing="0"
 width="100%">
       <thead>
         <tr>
