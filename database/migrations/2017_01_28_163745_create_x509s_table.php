@@ -17,6 +17,7 @@ class CreateX509sTable extends Migration
             $table->increments('id');
             $table->string('fqdn')->unique();
             $table->integer('port');
+            $table->integer('daysleft')->nullable();
             $table->string('name')->nullable();
             $table->string('subject_C')->nullable();
             $table->string('subject_ST')->nullable();
@@ -37,13 +38,13 @@ class CreateX509sTable extends Migration
             $table->string('signatureTypeLN')->nullable();
             $table->string('signatureTypeNID')->nullable();
             $table->string('extensions_extendedKeyUsage')->nullable();
-            $table->string('extensions_subjectAltName')->nullable();
+            $table->text('extensions_subjectAltName')->nullable();
             $table->string('extensions_keyUsage')->nullable();
             $table->string('extensions_authorityInfoAccess')->nullable();
             $table->string('extensions_subjectKeyIdentifier')->nullable();
             $table->string('extensions_basicConstraints')->nullable();
             $table->string('extensions_authorityKeyIdentifier')->nullable();
-            $table->string('extensions_certificatePolicies')->nullable();
+            $table->text('extensions_certificatePolicies')->nullable();
             $table->string('extensions_crlDistributionPoints')->nullable();
             $table->timestamps();
         });

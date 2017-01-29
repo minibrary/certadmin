@@ -50,8 +50,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="list" class="display nowrap table" cellspacing="0"
-width="100%">
+    <table id="list" class="display nowrap table" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Domain</th>
@@ -66,11 +65,11 @@ width="100%">
       <tbody>
       @foreach($certificates as $certificate)
         <tr>
-          <td>{{$certificate->fqdn}}</td>
-          <td>{{$certificate->daysleft}}</td>
-          <td>{{$certificate->memo}}</td>
-          <td>{{$certificate->port}}</td>
-          <td>{{$certificate->updated_at}}</td>
+          <td>{{ $certificate->fqdn }}</td>
+          <td>{{ $certificate->daysleft }}</td>
+          <td>{{ $certificate->memo }}</td>
+          <td>{{ $certificate->port }}</td>
+          <td>{{ $certificate->updated_at }}</td>
           <td>
             <div class="box-body">
               <div class="low" style="float:left">
