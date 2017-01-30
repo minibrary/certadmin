@@ -516,9 +516,9 @@
 <script src="{{ asset("plugins/chartjs/Chart.min.js") }}"></script>
 -->
 
-<!-- AdminLTE for demo purposes
+
 <script src="{{ asset("dist/js/demo.js") }}"></script>
--->
+
 @stack('js')
 @stack('script')
 </body>

@@ -11,13 +11,18 @@ use App\Http\Requests;
 class X509Controller extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function parse()
     {
       $x509s = X509::get();
       foreach ($x509s as $x509)
       {
         $get = stream_context_create(array("ssl" => array("capture_peer_cert" => TRUE, 'verify_peer' => false, 'verify_peer_name' => false)));
-        $read = stream_socket_client("ssl://".$x509['fqdn'].":".$x509['port'], $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $get);
+        $read = stream_socket_client("ssl://".$x509['fqdn'].":".$x509['port'], $errno, $errstr, 10, STREAM_CLIENT_CONNECT, $get);
         $cert = stream_context_get_params($read);
         // Parse Certificate and make it array //
         $certinfo = openssl_x509_parse($cert['options']['ssl']['peer_certificate']);
@@ -32,6 +37,7 @@ class X509Controller extends Controller
           'subject.L',
           'subject.O',
           'subject.CN',
+          'hash',
           'issuer.C',
           'issuer.O',
           'issuer.CN',
@@ -73,6 +79,7 @@ class X509Controller extends Controller
             'subject_L' => $certinfo['subject.L'],
             'subject_O' => $certinfo['subject.O'],
             'subject_CN' => $certinfo['subject.CN'],
+            'hash' => $certinfo['hash'],
             'issuer_C' => $certinfo['issuer.C'],
             'issuer_O' => $certinfo['issuer.O'],
             'issuer_CN' => $certinfo['issuer.CN'],
@@ -104,4 +111,11 @@ class X509Controller extends Controller
       return redirect('/list');
     }
 
+
+    public function parsetwo($fqdn, $port)
+      {
+        $get = stream_context_create(array("ssl" => array("capture_peer_cert" => TRUE, 'verify_peer' => false, 'verify_peer_name' => false)));
+        $read = stream_socket_client("ssl://".$fqdn.":".$port, $errno, $errstr, 10, STREAM_CLIENT_CONNECT, $get);
+        $cert = stream_context_get_params($read);
+      }
 }

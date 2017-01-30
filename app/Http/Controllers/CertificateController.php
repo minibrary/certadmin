@@ -49,26 +49,30 @@ class CertificateController extends Controller
 
     public function store(Request $request)
     {
-      $certificate = new certificate([
-          'fqdn' => $request->get('fqdn'),
-          'port' => $request->get('port'),
-          'memo' => $request->get('memo'),
-      ]);
-      $user = \Auth::user();
-      $certificate->user()->associate($user->id);
-      $certificate->save();
+        $get = stream_context_create(array("ssl" => array("capture_peer_cert" => TRUE, 'verify_peer' => false, 'verify_peer_name' => false)));
+        stream_socket_client("ssl://".$request->get('fqdn').":".$request->get('port'), $errno, $errstr, 15, STREAM_CLIENT_ASYNC_CONNECT, $get);
+        // Save input into certificates table //
+        $certificate = new certificate([
+            'fqdn' => $request->get('fqdn'),
+            'port' => $request->get('port'),
+            'memo' => $request->get('memo'),
+        ]);
+        $user = \Auth::user();
+        $certificate->user()->associate($user->id);
+        $certificate->save();
+        // Save input into x509s table //
+        $x509 = X509::firstOrNew([
+            'fqdn' => $request->get('fqdn'),
+            'port' => $request->get('port'),
+        ]);
+        $x509->save();
 
-      $x509 = X509::firstOrNew([
-          'fqdn' => $request->get('fqdn'),
-          'port' => $request->get('port'),
-      ]);
-      $x509->save();
-
-      \Log::info('Certificate 등록 성공',
-          ['user-id'=> $user->id, 'certificate-id'=>$certificate->id]
-      );
-      return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been created.');
+        \Log::info('Certificate 등록 성공',
+            ['user-id'=> $user->id, 'certificate-id'=>$certificate->id]
+        );
+        return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been created.');
     }
+
 
     public function edit($id)
     {
