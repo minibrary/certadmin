@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Certificate;
 use App\Http\Requests;
 use App\X509;
+use App\Http\Controllers\X509Controller;
 
 
 
@@ -50,7 +51,7 @@ class CertificateController extends Controller
     public function store(Request $request)
     {
         $get = stream_context_create(array("ssl" => array("capture_peer_cert" => TRUE, 'verify_peer' => false, 'verify_peer_name' => false)));
-        stream_socket_client("ssl://".$request->get('fqdn').":".$request->get('port'), $errno, $errstr, 15, STREAM_CLIENT_ASYNC_CONNECT, $get);
+        stream_socket_client("ssl://".$request->get('fqdn').":".$request->get('port'), $errno, $errstr, 10, STREAM_CLIENT_ASYNC_CONNECT, $get);
         // Save input into certificates table //
         $certificate = new certificate([
             'fqdn' => $request->get('fqdn'),
@@ -66,6 +67,7 @@ class CertificateController extends Controller
             'port' => $request->get('port'),
         ]);
         $x509->save();
+        X509Controller::parseone($request->get('fqdn'), $request->get('port'));
 
         \Log::info('Certificate 등록 성공',
             ['user-id'=> $user->id, 'certificate-id'=>$certificate->id]

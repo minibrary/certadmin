@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/parse', 'X509Controller@parse');
-
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 //Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
