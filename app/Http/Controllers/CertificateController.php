@@ -84,12 +84,12 @@ class CertificateController extends Controller
     public function update(Request $request, $id)
     {
       $certificate = Certificate::findOrFail($id);
-
       $certificate->update([
       'fqdn' => $request->get('fqdn'),
       'port' => $request->get('port'),
       'memo' => $request->get('memo'),
       ]);
+      CertificateController::parse_store($request->get('fqdn'), $request->get('port'));
       return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been modified.');
     }
 
