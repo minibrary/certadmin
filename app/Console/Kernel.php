@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('App\Http\Controllers\X509Controller@update')->everyMinute();
+        $schedule->call('App\Http\Controllers\X509Controller@parse')->name('X509ParseAll')->withoutOverlapping()->hourlyAt(15);
 
     }
 
