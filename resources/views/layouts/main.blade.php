@@ -264,21 +264,21 @@
         <li>
           <a href="{{ url('/list') }}"><i class="fa fa-circle-o text-aqua"></i><span> List all</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-aqua">{{ App\Certificate::count() }}</small>
+              <small class="label pull-right bg-aqua">{{ App\Certificate::where('user_id', Auth::user()->id)->count() }}</small>
             </span>
           </a>
         </li>
         <li>
           <a href="{{ url('/list/warning') }}"><i class="fa fa-circle-o text-yellow"></i><span> Warning</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">{{ App\Certificate::whereBetween('daysleft', [30, 90])->count() }}</small>
+              <small class="label pull-right bg-yellow">{{ App\Certificate::where('user_id', Auth::user()->id)->whereBetween('daysleft', [30, 90])->count() }}</small>
             </span>
           </a>
         </li>
         <li>
           <a href="{{ url('/list/danger') }}"><i class="fa fa-circle-o text-red"></i><span> Danger</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">{{ App\Certificate::where('daysleft', '<', '30')->count() }}</small>
+              <small class="label pull-right bg-red">{{ App\Certificate::where('user_id', Auth::user()->id)->where('daysleft', '<', '30')->count() }}</small>
             </span>
           </a>
         </li>
