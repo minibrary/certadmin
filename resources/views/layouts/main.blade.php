@@ -30,7 +30,10 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
+<!-- Fixed Header, Minimized Sidebar (Test)
 <body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
+-->
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
