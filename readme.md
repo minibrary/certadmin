@@ -53,5 +53,8 @@ php artisan key:gen
 ```
 php artisan migrate:refresh
 ```
+# Add Cron Schedule
 
-
+```
+* * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
+```
