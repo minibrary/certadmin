@@ -27,7 +27,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="{{ url('/') }}"><b>Cert</b> Admin</a>
+    <a href="{{ url('/') }}"><b>Certivel</b></a>
   </div>
 
   <div class="register-box-body">

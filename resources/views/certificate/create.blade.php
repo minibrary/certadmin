@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('title')
-<title> Cert Admin | Add Certificate </title>
+<title> Add Certificate | Certivel </title>
 @endpush
 
 @push('css')

@@ -16,7 +16,4 @@ class Certificate extends Model
     {
       return $this->belongsTo(X509::class);
     }
-
-
-
 }
