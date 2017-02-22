@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Certificate extends Model
 {
     protected $fillable = ['fqdn', 'port', 'memo'];
-    public function user()
+    public function owner()
     {
-      return $this->belongsTo(User::class);
+      return $this->belongsTo(User::class, 'user_id');
     }
 
     public function x509()
