@@ -25,10 +25,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call('App\Http\Controllers\X509Controller@parse')->name('X509ParseAll')->withoutOverlapping()->hourlyAt(15);
-
+	$schedule->command('reminder:mail --daysleft=20')->dailyAt('00:37')->appendOutputTo('storage/logs/reminder-email.log')->withoutOverlapping();
     }
-
-    /**
+     /**
      * Register the Closure based commands for the application.
      *
      * @return void

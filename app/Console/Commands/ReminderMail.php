@@ -12,7 +12,7 @@ class ReminderMail extends Command
      * @var string
      */
     protected $signature = 'reminder:mail
-                        {--daysleft=20}';
+                        {--daysleft=}';
     /**
      * The console command description.
      *
@@ -42,7 +42,7 @@ class ReminderMail extends Command
         {
           if ($certificate->count() == 0) continue;
           $total++;
-            foreach($certificate->owner()->get() as $user)
+            foreach($certificate->user()->get() as $user)
             {
               $data = [
                   'user' => $user,
