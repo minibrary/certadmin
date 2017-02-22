@@ -39,11 +39,9 @@ class ReminderMail extends Command
         $certificates = Certificate::all()->where('daysleft', '=', $daysleft);
         $total = 0;
         foreach($certificates as $certificate) {
-            $certowner = $certificate->user_id;
-            $user = User::where('userid', '=', $certowner);
-
             if ($certificate->count() == 0) continue;
             $total++;
+	 foreach($certificate->user() as $user) {
             $data = [
                 'user' => $user,
                 'certificate' => $certificate,
@@ -53,7 +51,8 @@ class ReminderMail extends Command
                 $m->to($user->email, $user->name)->subject('Your Certificate expires');
             });
             $this->info("$user->email 에게 알림 메일 전송");    //4
-        }
+	}
         $this->info($total .' 건의 알림 메일 전송 완료');
+     }
     }
 }
