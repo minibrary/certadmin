@@ -3,6 +3,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Certificate;
 use App\User;
+use Carbon\Carbon;
 
 class ReminderMail extends Command
 {
@@ -11,7 +12,7 @@ class ReminderMail extends Command
      *
      * @var string
      */
-    protected $signature = 'reminder:mail {--queue} {--daysleft=}';
+    protected $signature = 'reminder:mail {--queue=default} {--daysleft=}';
     /**
      * The console command description.
      *
@@ -47,13 +48,13 @@ class ReminderMail extends Command
                   'user' => $user,
                   'certificate' => $certificate,
               ];
-              \Mail::send('emails.60reminder', $data, function ($m) use ($user, $certificate, $daysleft) {
+              \Mail::send('emails.reminder', $data, function ($m) use ($user, $certificate, $daysleft) {
                   $m->from('certivel@minibrary.com', 'Certivel');
-                  $m->to($user->email, $user->name)->subject("Certivel Notice: Your certificate for " . $certificate->fqdn . " will be expired in " . $daysleft .  " days!");
+                  $m->to($user->email, $user->name)->subject("[Certivel] Your certificate for " . $certificate->fqdn . " will be expired in " . $daysleft .  " days!");
               });
-              $this->info("$user->email and ì$certificate->fqdn left $daysleft days. Success.");    //4
+              $this->info("[" . Carbon::now() . "] Mail sent to $user->email, for $certificate->fqdn, Alert for $daysleft days.");
             }
         }
-        $this->info($total .' mail has sent.');
+        $this->info("[" . Carbon::now() . "] " . $total . " mail sent.");
     }
 }

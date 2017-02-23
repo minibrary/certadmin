@@ -1,20 +1,49 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\X509;
+namespace App\Console\Commands;
+use Illuminate\Console\Command;
 use App\Certificate;
-use App\Http\Requests;
+use App\X509;
+use Carbon\Carbon;
 
-
-class X509Controller extends Controller
+class X509Reload extends Command
 {
-    public function parse()
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'x509:reload {--queue=default}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'x509 Certificate Reload';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
     {
       $x509s = X509::get();
+      $total = 0;
       foreach ($x509s as $x509)
       {
+        if ($x509->count() == 0) continue;
+        $total++;
         $get = stream_context_create(array("ssl" => array("capture_peer_cert" => TRUE, 'verify_peer' => false, 'verify_peer_name' => false)));
         $read = stream_socket_client("ssl://".$x509['fqdn'].":".$x509['port'], $errno, $errstr, 10, STREAM_CLIENT_CONNECT, $get);
         $cert = stream_context_get_params($read);
@@ -101,7 +130,8 @@ class X509Controller extends Controller
           ->update([
             'daysleft' => $daysleft,
           ]);
+        $this->info("[" . Carbon::now() . "] Update Successful: $x509->fqdn:$x509->port");
       };
-      return redirect('/list');
+      $this->info("[" . Carbon::now() . "] total " . $total . " x509 information updated.");
     }
 }

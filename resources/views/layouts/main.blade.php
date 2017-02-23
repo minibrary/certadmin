@@ -33,7 +33,7 @@
 <!-- Fixed Header, Minimized Sidebar (Test)
 <body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
   <header class="main-header">

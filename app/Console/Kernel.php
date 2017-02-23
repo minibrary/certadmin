@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\ReminderMail::class,
+        Commands\X509Reload::class,
     ];
 
     /**
@@ -24,8 +25,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('App\Http\Controllers\X509Controller@parse')->name('X509ParseAll')->withoutOverlapping()->hourlyAt(15);
-	$schedule->command('reminder:mail --daysleft=20')->dailyAt('00:37')->appendOutputTo('storage/logs/reminder-email.log')->withoutOverlapping();
+	      $schedule->command('reminder:mail --queue=default --daysleft=60')->dailyAt('06:00')->appendOutputTo('storage/logs/reminder-mail.log')->withoutOverlapping();
+        $schedule->command('reminder:mail --queue=default --daysleft=30')->dailyAt('06:00')->appendOutputTo('storage/logs/reminder-mail.log')->withoutOverlapping();
+        $schedule->command('reminder:mail --queue=default --daysleft=14')->dailyAt('06:00')->appendOutputTo('storage/logs/reminder-mail.log')->withoutOverlapping();
+        $schedule->command('reminder:mail --queue=default --daysleft=7')->dailyAt('06:00')->appendOutputTo('storage/logs/reminder-mail.log')->withoutOverlapping();
+        $schedule->command('x509:reload')->hourlyAt(15)->appendOutputTo('storage/logs/x509-reload.log')->withoutOverlapping();
     }
      /**
      * Register the Closure based commands for the application.
