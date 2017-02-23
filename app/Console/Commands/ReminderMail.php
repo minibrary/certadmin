@@ -11,8 +11,7 @@ class ReminderMail extends Command
      *
      * @var string
      */
-    protected $signature = 'reminder:mail
-                        {--daysleft=}';
+    protected $signature = 'reminder:mail {--queue} {--daysleft=}';
     /**
      * The console command description.
      *
@@ -50,11 +49,11 @@ class ReminderMail extends Command
               ];
               \Mail::send('emails.60reminder', $data, function ($m) use ($user, $certificate, $daysleft) {
                   $m->from('certivel@minibrary.com', 'Certivel');
-                  $m->to($user->email, $user->name)->subject("Certivel Alert: Certificate of " . $certificate->fqdn . " will be expired in " . $daysleft .  " days!");
+                  $m->to($user->email, $user->name)->subject("Certivel Notice: Your certificate for " . $certificate->fqdn . " will be expired in " . $daysleft .  " days!");
               });
-              $this->info("$user->email 에게 알림 메일 전송");    //4
+              $this->info("$user->email and �$certificate->fqdn left $daysleft days. Success.");    //4
             }
         }
-        $this->info($total .' 건의 알림 메일 전송 완료');
+        $this->info($total .' mail has sent.');
     }
 }
