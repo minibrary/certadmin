@@ -39,8 +39,8 @@
       {{Session::get('message')}}
     </div><!-- /.box-body -->
   </div><!-- /.box -->
+  @endif
 
-    @endif
   <div class="row">
     <div class="col-xs-12">
 <!-- TABLE START -->
