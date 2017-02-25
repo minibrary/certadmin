@@ -73,9 +73,9 @@
           <td>
             <div class="box-body">
               <div class="low" style="float:left">
-                <button type="button" class="btn btn-xs" aria-label="Center Align" title="Detail">
+                <a class="btn btn-info btn-xs" aria-label="Center Align" title="Detail" href="{{ route('list.show', $certificate->id) }}">
                   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                </button>
+                </a>
                 <a class="btn btn-warning btn-xs" aria-label="Center Align" title="Edit" href="{{ route('list.edit', $certificate->id) }}">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>

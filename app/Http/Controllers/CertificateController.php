@@ -75,6 +75,16 @@ class CertificateController extends Controller
         return redirect('/list')->with('message', 'Certificate for ' . $certificate->fqdn . ' has been created.');
     }
 
+    public function show($id)
+    {
+      $certificate = Certificate::findOrFail($id);
+      $certificatedetail = X509::where('fqdn', $certificate->fqdn)->first();
+      if($certificatedetail == null) {
+        abort(404, $id . ' Cannot find model.');
+      }
+      return view('certificate.detail')->with('certificatedetail', $certificatedetail);    //3
+    }
+
     public function edit($id)
     {
       $certificate = Certificate::findOrFail($id);
