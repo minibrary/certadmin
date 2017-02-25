@@ -3,6 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Certificate;
+use App\Http\Requests;
+use App\X509;
+use App\Http\Controllers\X509Controller;
+use Mail;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class DashboardController extends Controller
 {
@@ -25,4 +34,11 @@ class DashboardController extends Controller
     {
         return view('dashboard');
     }
+
+    public function edit($id)
+    {
+        $profile = User::findOrFail($id);
+        return view('auth.edit')->with('profile', $profile);
+    }
+
 }
