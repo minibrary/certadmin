@@ -22,6 +22,11 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
+      @if(Session::has('message'))
+        <div class="alert alert-danger">
+          {{Session::get('message')}}
+        </div>
+      @endif
 
       <P>Hello, world!</p>
 
