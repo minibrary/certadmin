@@ -2,8 +2,8 @@
 namespace App\Http\Middleware;
 use App\Certificate;
 use Closure;
-
-class OwnerCheck
+use App\User;
+class ProfileCheck
 {
     /**
      * Validate Certificat owner = current loggen in user.
@@ -15,16 +15,16 @@ class OwnerCheck
     public function handle($request, Closure $next, $guard = null)
     {
         if (\Auth::guard($guard)->check()) {
-            // get certificate id from current route
-            $cid = \Route::current()->parameter('list');
+            // get current user id from current route
+            $cid = \Route::current()->parameter('profile');
             if (isset($cid)) {
-                $certificate = Certificate::find($cid);
+                $cuser = User::find($cid);
                 $user = \Auth::user();
-                if ($certificate->user->id != $user->id) {
+                if ($cuser->id != $user->id) {
                     \Log::error('Bad Access: ', [
                         'user-id' => $user->id,
                         'name'=> $user->name,
-                        'certificate-id' => $certificate->id,
+                        'tried to access' => $user->id,
                     ]);
                     return redirect('/dashboard')
                         ->with('message', 'Bad Access: You can access only your own.');
