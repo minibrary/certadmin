@@ -34,11 +34,4 @@ class DashboardController extends Controller
     {
         return view('dashboard');
     }
-
-    public function edit($id)
-    {
-        $profile = User::findOrFail($id);
-        return view('auth.edit')->with('profile', $profile);
-    }
-
 }

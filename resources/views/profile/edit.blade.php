@@ -25,6 +25,23 @@
   <div class="row">
     <div class="col-xs-12">
 
+      <div class="box box-info">
+        <div class="box-body">
+          <form data-toggle="validator" role="form" method="POST" action="{{ route('profile.update', $profile->id) }}">
+            {{ method_field('PUT') }}
+            {{ csrf_field() }}
+            <div class="form-group has-feedback">
+              <label>Name</label>
+              <input type="text" pattern="^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$" class="form-control" placeholder="(Do Not include https:// )    ex) www.google.com" name="fqdn" value="{{ $profile->name }}" required>
+            </div>
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button onclick="goBack()" class="btn btn-danger">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
 
     </div>
   </div>
