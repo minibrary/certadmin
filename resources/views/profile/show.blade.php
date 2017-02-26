@@ -53,38 +53,42 @@
               <label>Joined Certivel at</label>
               <input type="text" class="form-control" value="{{ $profile->created_at }}" disabled>
             </div>
-            <div class="box-footer">
-              <a class="btn btn-warning" aria-label="Center Align" title="Edit" href="{{ route('profile.edit', $profile->id) }}">Edit Profile</a>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal-{{ $profile->id }}" aria-label="Center Align" title="Delete">Leave Certivel</button>
-            </div>
           </form>
-      <!-- Modal -->
-      <div class="modal fade" id="deletemodal-{{ $profile->id }}" tabindex="-1" role="dialog" aria-labelledby="deletemodalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="deletemodal-{{ $profile->id }}">Leave Certivel</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Are you sure to leave Certivel? We will miss you so much!
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                {{ Form::open([ 'method'  => 'delete', 'route' => [ 'profile.destroy', $profile->id ] ]) }}
-                  {{ Form::hidden('id', $profile->id) }}
-                  {{ Form::submit('Yes, I want to leave.', ['class' => 'btn btn-danger']) }}
-                {{ Form::close() }}
-            </div>
+      </div>
+    </div>
+
+    <a class="btn btn-warning" aria-label="Center Align" title="Edit" href="{{ route('profile.edit', $profile->id) }}">Edit Profile</a>
+    <!-- Password Reset, need to dev -->
+    <a class="btn btn-info" aria-label="Center Align" title="Change Password (Comming Soon)" href="#">Change Password (by mail)</a>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal-{{ $profile->id }}" aria-label="Center Align" title="Leave Certivel">Leave Certivel</button>
+    <!-- Modal -->
+    <div class="modal fade" id="deletemodal-{{ $profile->id }}" tabindex="-1" role="dialog" aria-labelledby="deletemodalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deletemodal-{{ $profile->id }}">Leave Certivel</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            [Warning] All data will be destoried related you.
+            Are you sure to leave Certivel? We will miss you so much!
+          </div>
+          <div class="modal-footer">
+            <form method="POST" action="{{ route('profile.destroy', $profile->id) }}">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-danger">Yes, I wan't to leave Certivel.</button>
+            </form>
           </div>
         </div>
       </div>
-      <!-- End Modal -->
-      </div>
     </div>
+    <!-- End Modal -->
   </div>
 </div>
 </section>
