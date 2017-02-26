@@ -18,10 +18,6 @@
   <h1>
     Certificate List
   </h1>
-  <ol class="breadcrumb">
-    <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li class="active">Certificate List: All</li>
-  </ol>
 </section>
 
 
