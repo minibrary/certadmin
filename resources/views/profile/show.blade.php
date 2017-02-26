@@ -46,7 +46,7 @@
               <input type="text" class="form-control" value="{{ $profile->name }}" disabled>
             </div>
             <div class="form-group">
-              <label>E-mail Address</label>
+              <label>E-Mail Address</label>
               <input type="email" class="form-control" value="{{ $profile->email }}" disabled>
             </div>
             <div class="form-group">
