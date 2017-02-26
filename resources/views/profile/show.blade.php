@@ -25,7 +25,7 @@
     <div class="col-xs-12">
 
       @if(Session::has('message'))
-      <div class="box box-solid box-danger box-success">
+      <div class="box box-solid box-success box-message">
         <div class="box-header with-border">
           <h3 class="box-title">Information</h3>
           <div class="box-tools pull-right">
@@ -96,15 +96,16 @@
 
 @endsection
 
-@push('js')
-<!-- Bootstrap Validator -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
-@endpush
-
 @push('script')
-<script>
-function goBack() {
-    window.history.back();
-}
+<script type="text/javascript">
+$(document).ready(function () {
+
+window.setTimeout(function() {
+    $(".box-message").fadeTo(1500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 5000);
+
+});
 </script>
 @endpush
