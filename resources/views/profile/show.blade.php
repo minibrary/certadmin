@@ -68,14 +68,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deletemodal-{{ $profile->id }}">Leave Certivel</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h3 class="modal-title" id="deletemodal-{{ $profile->id }}">Leave Certivel</h3><br>
+            <strong>[Warning]</strong> All related data will be destoried.<br>
           </div>
           <div class="modal-body">
-            [Warning] All data will be destoried related you.
-            Are you sure to leave Certivel? We will miss you so much!
+            We will miss you so much!<br>
+            Are you sure to leave Certivel?
           </div>
           <div class="modal-footer">
             <form method="POST" action="{{ route('profile.destroy', $profile->id) }}">

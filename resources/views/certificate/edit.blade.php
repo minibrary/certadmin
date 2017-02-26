@@ -44,7 +44,7 @@
             </div>
             <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
-              <button onclick="goBack()" class="btn btn-danger">Cancel</button>
+              <button onclick="goBack()" class="btn btn-default">Cancel</button>
             </div>
           </form>
         </div>
