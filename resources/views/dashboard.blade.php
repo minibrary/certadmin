@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col-xs-12">
       @if(Session::has('message'))
-      <div class="box box-solid box-danger box-success">
+      <div class="box box-solid box-success box-message">
         <div class="box-header with-border">
           <h3 class="box-title">Information</h3>
           <div class="box-tools pull-right">
@@ -46,3 +46,20 @@
 <!-- /.content-wrapper -->
 
 @endsection
+
+@push('script')
+<script type="text/javascript">
+<!--
+
+$(document).ready(function () {
+
+window.setTimeout(function() {
+    $(".box-message").fadeTo(1500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 5000);
+
+});
+//-->
+</script>
+@endpush

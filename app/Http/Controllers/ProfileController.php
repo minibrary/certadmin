@@ -82,8 +82,7 @@ class ProfileController extends Controller
             'email' => $request->get('email'),
             'password' => bcrypt($request->get('password')),
         ]);
-        return redirect()->route('profile.show')->with('message', 'Your profile has been modified.');
-
+        return redirect()->route('profile.show', $profile->id)->with('message', 'Your profile has been modified.');
     }
 
     /**

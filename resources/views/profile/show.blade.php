@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('title')
-<title> Edit Profile | Certivel </title>
+<title> Show Profile | Certivel </title>
 @endpush
 
 @push('css')
@@ -19,11 +19,25 @@
   </h1>
 </section>
 
-
 <!-- page content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
+
+      @if(Session::has('message'))
+      <div class="box box-solid box-danger box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Information</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          {{Session::get('message')}}
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      @endif
+
       <div class="box box-info">
         <div class="box-body">
           <form data-toggle="validator" role="form">
@@ -33,14 +47,14 @@
             </div>
             <div class="form-group">
               <label>E-mail Address</label>
-              <input type="text" class="form-control" value="{{ $profile->email }}" disabled>
+              <input type="email" class="form-control" value="{{ $profile->email }}" disabled>
             </div>
             <div class="form-group">
               <label>Joined Certivel at</label>
               <input type="text" class="form-control" value="{{ $profile->created_at }}" disabled>
             </div>
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Edit Profile</button>
+              <a class="btn btn-warning" aria-label="Center Align" title="Edit" href="{{ route('profile.edit', $profile->id) }}">Edit Profile</a>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal-{{ $profile->id }}" aria-label="Center Align" title="Delete">Leave Certivel</button>
             </div>
