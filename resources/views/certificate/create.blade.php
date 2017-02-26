@@ -34,15 +34,15 @@
             {{ csrf_field() }}
             <div class="form-group has-feedback">
               <label>Domain by FQDN</label>
-              <input type="text" pattern="^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$" class="form-control" placeholder="(Do Not include https:// )    ex) www.google.com" name="fqdn" value="{{ old('fqdn') }}" required>
+              <input type="text" pattern="^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$" class="form-control" placeholder="(Do Not include https:// )    ex) www.google.com" name="fqdn" required>
             </div>
             <div class="form-group">
               <label>Port Number</label>
-              <input type="text" maxlength="5" pattern="^[0-9]*$" class="form-control" placeholder="(Numbers only)    ex) 443" name="port" value="{{ old('port') }}" required>
+              <input type="number" maxlength="5" pattern="^[0-9]*$" class="form-control" placeholder="(Numbers only)    ex) 443" name="port" value="443" required>
             </div>
             <div class="form-group">
               <label>Memo</label>
-              <textarea class="form-control" rows="3" placeholder="Memo for this certificate" name="memo" value="{{ old('memo') }}"></textarea>
+              <textarea class="form-control" rows="3" placeholder="Memo for this certificate" name="memo"></textarea>
             </div>
             <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
