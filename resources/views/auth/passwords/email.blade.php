@@ -32,7 +32,7 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     @if (session('status'))
-        <div class="alert alert-info">
+        <div class="alert alert-success">
             {{ session('status') }}
         </div>
     @endif
