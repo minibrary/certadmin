@@ -12,7 +12,7 @@ You recieve this mail because you are a member of Certivel.<br>
 This is a service which monitors an SSL certificate on a website, and notifies you when it is about to expire.<br>
 This extra notification helps you remember to renew your certificate on time.<br>
 <br>
-We've noticed that following domain will be expired in {{ $certificate->daysleft }} days:<br>
+We've noticed that certificate on following domain will be expired in {{ $certificate->daysleft }} days:<br>
 <br>
 Domain: {{ $certificate->fqdn }}<br>
 <br>
