@@ -6,7 +6,19 @@
   <title> Certificate Expiry Alert | Certivel </title>
 </head>
 <body>
-  Hello, {{ $user->name }}. <br>
-  Your certificate {{ $certificate->fqdn }} will be expired in {{ $certificate->daysleft }} days.
+Hello, {{ $user->name }}.<br>
+<br>
+You recieve this mail because you are a member of Certivel.<br>
+This is a service which monitors an SSL certificate on a website, and notifies you when it is about to expire.<br>
+This extra notification helps you remember to renew your certificate on time.<br>
+<br>
+We've noticed that following domain will be expired in {{ $certificate->daysleft }} days:<br>
+<br>
+Domain: {{ $certificate->fqdn }}<br>
+<br>
+Please check this website or it's certificate, and renew your certificate before it's expired.<br>
+<br>
+Have a nice day,<br>
+<a href="{{ url('/') }}">Certivel</a>
 </body>
 </html>
