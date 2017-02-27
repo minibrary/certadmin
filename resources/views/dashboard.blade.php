@@ -94,7 +94,7 @@
                   </tr>
                   @foreach($topfives as $topfive)
                   <tr>
-                    <td>{{ $topfive->fqdn }}</td>
+                    <td><a href="{{ route('list.show', $topfive->id) }}">{{ $topfive->fqdn }}</a></td>
                     <td>{{ $topfive->daysleft }}</td>
                     <td>{{ $topfive->memo }}</td>
                     <td>{{ $topfive->port }}</td>
