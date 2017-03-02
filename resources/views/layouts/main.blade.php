@@ -25,8 +25,7 @@
   @media (min-width: 768px) {
     .adsense-sidebar {
         width: 230px;
-        height: 200px;
-        margin-top: 15px;
+        margin-top: 10px;
     }
   }
   </style>
@@ -169,19 +168,19 @@
             </span>
           </a>
         </li>
+        <div class="adsense-sidebar">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Certivel-1 -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-2882078161937378"
+               data-ad-slot="5151793841"
+               data-ad-format="auto"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       </ul>
-      <div class="adsense-sidebar">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Certivel-1 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2882078161937378"
-             data-ad-slot="5151793841"
-             data-ad-format="auto"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
 
     </section>
     <!-- /.sidebar -->
