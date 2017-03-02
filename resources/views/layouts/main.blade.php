@@ -162,12 +162,11 @@
       </ul>
       <ul class="sidebar-menu">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Certivel-1 -->
+        <!-- Certivel-Sidebar -->
         <ins class="adsbygoogle"
-             style="display:block"
+             style="display:inline-block;width:336px;height:280px"
              data-ad-client="ca-pub-2882078161937378"
-             data-ad-slot="5151793841"
-             data-ad-format="auto"></ins>
+             data-ad-slot="6430050646"></ins>
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
