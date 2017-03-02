@@ -39,7 +39,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <!-- Google AdSense
+  <!-- Google AdSense Page Contents-->
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -47,7 +47,7 @@
       enable_page_level_ads: true
     });
   </script>
-  End Google AdSense -->
+  <!-- End Google AdSense -->
 
 </head>
 <!-- Fixed Header, Minimized Sidebar (Test)
@@ -169,9 +169,10 @@
             </span>
           </a>
         </li>
+
+        <!-- AdSense Sidebar
         <div class="adsense-sidebar">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- Certivel-1 -->
           <ins class="adsbygoogle"
                style="display:block"
                data-ad-client="ca-pub-2882078161937378"
@@ -181,6 +182,8 @@
           (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
+        Adsense Sidebar -->
+        
       </ul>
 
     </section>
