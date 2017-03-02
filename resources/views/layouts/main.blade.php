@@ -150,11 +150,35 @@
           </a>
         </li>
       </ul>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Certivel-1 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2882078161937378"
+             data-ad-slot="5151793841"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
     </section>
     <!-- /.sidebar -->
   </aside>
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Certivel-2 -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2882078161937378"
+       data-ad-slot="5930523049"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 
   @yield('content')
+
+
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
