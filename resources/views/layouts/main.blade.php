@@ -38,7 +38,8 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <!-- Google AdSense -->
+
+  <!-- Google AdSense
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -46,7 +47,7 @@
       enable_page_level_ads: true
     });
   </script>
-  <!-- End Google AdSense -->
+  End Google AdSense -->
 
 </head>
 <!-- Fixed Header, Minimized Sidebar (Test)
