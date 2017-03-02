@@ -21,6 +21,14 @@
   <link rel="stylesheet" href="{{ asset("dist/css/skins/_all-skins.min.css") }}">
   <!-- Quicksand Font -->
   <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
+  <style>
+  @media (min-width: 768px) {
+    .adsense-sidebar {
+        width: 230px;
+    }
+  }
+  </style>
+
   @stack('css')
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -160,17 +168,18 @@
           </a>
         </li>
       </ul>
-      <ul class="sidebar-menu">
+      <div class="adsense-sidebar">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Certivel-Sidebar -->
+        <!-- Certivel-1 -->
         <ins class="adsbygoogle"
-             style="display:inline-block;width:336px;height:280px"
+             style="display:block"
              data-ad-client="ca-pub-2882078161937378"
-             data-ad-slot="6430050646"></ins>
+             data-ad-slot="5151793841"
+             data-ad-format="auto"></ins>
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-      </ul>
+      </div>
 
     </section>
     <!-- /.sidebar -->
