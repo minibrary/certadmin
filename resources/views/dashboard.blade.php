@@ -31,9 +31,30 @@
       </div>
       @endif
 
-      <P>
-        <h4>Good day, {{ Auth::user()->name }}!</h4>
-      </p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <i class="fa  fa-user"></i>
+              <h3 class="box-title">Account Status</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <dl class="dl-horizontal">
+                <dt>Your Email Address:</dt>
+                <dd>example@example.com</dd>
+                <dt>Email Verified?</dt>
+                <dd><span class="glyphicon glyphicon-ok"></span></dd>
+                <dt>Receive Email agreed?</dt>
+                <dd><i class="fa fa-check"></i> <i class="fa fa-close"></i></dd>
+              </dl>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+
         <div class="row">
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="info-box">
