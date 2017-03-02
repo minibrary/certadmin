@@ -26,6 +26,7 @@
     .adsense-sidebar {
         width: 230px;
         height: 460px;
+        margin-top: 80px;
     }
   }
   </style>
