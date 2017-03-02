@@ -160,6 +160,7 @@
           </a>
         </li>
       </ul>
+      <ul class="sidebar-menu">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Certivel-1 -->
         <ins class="adsbygoogle"
@@ -170,15 +171,29 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+      </ul>
 
     </section>
     <!-- /.sidebar -->
   </aside>
 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Certivel-2 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2882078161937378"
+         data-ad-slot="5930523049"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 
   @yield('content')
 
-
+  </div>
+  <!-- /.content-wrapper -->
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">

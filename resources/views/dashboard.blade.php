@@ -5,27 +5,14 @@
 @endpush
 
 @section('content')
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- Certivel-2 -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-2882078161937378"
-       data-ad-slot="5930523049"
-       data-ad-format="auto"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 
 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-  <h1>
-    Dashboard
-  </h1>
-</section>
+    <h1>
+      Dashboard
+    </h1>
+  </section>
 
 
 <!-- page content -->
@@ -117,8 +104,6 @@
   </div>
 </section>
 <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
 @endsection
 
