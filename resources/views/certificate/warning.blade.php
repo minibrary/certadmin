@@ -117,8 +117,6 @@ width="100%">
 </div>
 </section>
 <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 @endsection
 
 @push('js')

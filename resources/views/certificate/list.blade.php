@@ -35,16 +35,17 @@
   </div><!-- /.box -->
   @endif
 
+<section class="content">
   <div class="row">
     <div class="col-xs-12">
 <!-- TABLE START -->
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">Certificate List</h3>
-  </div>
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Certificate List</h3>
+      </div>
   <!-- /.box-header -->
-  <div class="box-body">
-    <table id="list" class="display nowrap table" cellspacing="0" width="100%">
+        <div class="box-body">
+          <table id="list" class="display nowrap table" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Domain</th>
@@ -55,7 +56,6 @@
           <th>Action</th>
         </tr>
       </thead>
-
       <tbody>
       @foreach($certificates as $certificate)
         <tr>
@@ -110,14 +110,12 @@
       @endforeach
       </tbody>
     </table>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
-</div>
 </section>
 <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 @endsection
 
 @push('js')
