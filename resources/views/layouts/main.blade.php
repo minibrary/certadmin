@@ -25,6 +25,7 @@
   @media (min-width: 768px) {
     .adsense-sidebar {
         width: 230px;
+        height: 460px;
     }
   }
   </style>
