@@ -52,7 +52,7 @@
 <!-- Fixed Header, Minimized Sidebar (Test)
 <body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
 -->
-<body class="hold-transition skin-blue sidebar-mini fixed">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
