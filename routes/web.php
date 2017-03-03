@@ -22,10 +22,11 @@ Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-
 Route::group(['middleware' => ['web', 'auth']], function() {
     Route::get('/list/warning', 'CertificateController@warning');
     Route::get('/list/danger', 'CertificateController@danger');
     Route::resource('/list', 'CertificateController');
+    Route::get('profile/sendemailverify', 'ProfileController@send_email_verify');
+    Route::get('profile/verify/{token}', 'ProfileController@email_verify');
     Route::resource('/profile', 'ProfileController', ['except' => ['index', 'store']]);
 });

@@ -44,9 +44,21 @@
                 <dt>Your Email Address:</dt>
                 <dd>{{ Auth::user()->email }}</dd>
                 <dt>Email Verified?</dt>
-                <dd><span class="glyphicon glyphicon-ok"></span></dd>
+                <dd>
+                  @if(Auth::user()->email_verified === 1)
+                  <i class="fa fa-check text-green"></i>
+                  @else
+                  <i class="fa fa-close text-red"></i>
+                  @endif
+                </dd>
                 <dt>Receive Email agreed?</dt>
-                <dd><i class="fa fa-check text-green"></i> <i class="fa fa-close text-red"></i></dd>
+                <dd>
+                  @if(Auth::user()->email_accepted === 1)
+                  <i class="fa fa-check text-green"></i>
+                  @else
+                  <i class="fa fa-close text-red"></i>
+                  @endif
+                </dd>
               </dl>
             </div>
             <!-- /.box-body -->

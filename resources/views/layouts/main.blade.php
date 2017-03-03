@@ -22,11 +22,8 @@
   <!-- Quicksand Font -->
   <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
   <style>
-  @media (min-width: 768px) {
-    .adsense-sidebar {
-        width: 230px;
-        margin-top: 10px;
-    }
+  .skin-blue .main-header li.user-header {
+    background-color: DarkSlateBlue;
   }
   </style>
 
@@ -183,7 +180,7 @@
           </script>
         </div>
         Adsense Sidebar -->
-        
+
       </ul>
 
     </section>

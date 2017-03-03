@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'email_verified', 'email_token', 'email_accepted'
     ];
 
     /**
@@ -31,4 +31,11 @@ class User extends Authenticatable
     {
       return $this->hasMany(Certificate::class);
     }
+
+    public function email_verified()
+    {
+      $this->email_verified = 1;
+      $this->email_token = null;
+      $this->save();
+  }
 }
