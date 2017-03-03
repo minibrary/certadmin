@@ -33,7 +33,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-solid">
+          <div class="box box-solid box-primary">
             <div class="box-header with-border">
               <i class="fa  fa-user"></i>
               <h3 class="box-title">Account Status</h3>
@@ -42,11 +42,11 @@
             <div class="box-body">
               <dl class="dl-horizontal">
                 <dt>Your Email Address:</dt>
-                <dd>example@example.com</dd>
+                <dd>{{ Auth::user()->email }}</dd>
                 <dt>Email Verified?</dt>
                 <dd><span class="glyphicon glyphicon-ok"></span></dd>
                 <dt>Receive Email agreed?</dt>
-                <dd><i class="fa fa-check"></i> <i class="fa fa-close"></i></dd>
+                <dd><i class="fa fa-check text-green"></i> <i class="fa fa-close text-red"></i></dd>
               </dl>
             </div>
             <!-- /.box-body -->
